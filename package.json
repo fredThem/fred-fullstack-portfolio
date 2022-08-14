@@ -10,7 +10,9 @@
     "export": "next export",
     "build-export": "next build && next export",
     "lint": "next lint",
-    "lint-fix": "next lint --fix"
+    "lint-fix": "next lint --fix",
+    "prepare": "husky install",
+    "stylelint-check": "stylelint-config-prettier-check"
   },
   "browserslist": {
     "production": [
@@ -85,7 +87,21 @@
     "@svgr/webpack": "^6.2.1",
     "eslint": "^8.8.0",
     "eslint-config-next": "^12.0.10",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "next-transpile-modules": "^9.0.0",
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "stylelint": "^14.10.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^27.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --cache --fix",
+      "stylelint --cache -f verbose"
+    ],
+    "*.{css,scss}": "stylelint --cache --fix -f verbose",
+    "*.{js,ts,tsx,html,css,scss,md}": "prettier --ignore-unknown --write"
   }
 }
