@@ -98,8 +98,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --cache --fix",
-      "stylelint --cache -f verbose"
+      "eslint --cache --fix"
     ],
     "*.{css,scss}": "stylelint --cache --fix -f verbose",
     "*.{js,ts,tsx,html,css,scss,md}": "prettier --ignore-unknown --write"
